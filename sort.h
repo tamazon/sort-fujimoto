@@ -67,7 +67,7 @@ void quicksort(
 );
 
 // アルゴリズム 7.3  マージソート
-void mergesort_fujimoto(
+void merge_sort(
     double  [],
     int,
     int

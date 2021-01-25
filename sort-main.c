@@ -46,7 +46,7 @@ int main( void )
         // アルゴリズム 6.1  クイックソート
         // quicksort( A, 0, N-1 );
         // アルゴリズム 7.3  マージソート
-        mergesort_fujimoto( A, 0, N-1 );
+        merge_sort( A, 0, N-1 );
 
         // ++++ 計算時間の計測終了
         time_end = clock();

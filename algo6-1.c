@@ -9,14 +9,14 @@ int partition(
     int right
 )
 {
-    // int k = (left + right)/2; // kの簡単な決め方の例
-    int k = right; // kの簡単な決め方の例
+    int k = (left + right)/2; // kの簡単な決め方の例
+    // int k = right; // kの簡単な決め方の例
     swap(&D[k], &D[right]);
     int i = left;
-    int j =right - 1;
-    while(i<j){
+    int j = right-1;
+    while(i<=j){
         while(D[i]<D[right]) { i=i+1; }
-        while(D[j]>=D[right]) { j=j-1; }
+        while(D[j]>=D[right] && j>=i) { j=j-1; }
         if(i<j) swap(&D[i], &D[j]);
     }
     swap(&D[i], &D[right]);

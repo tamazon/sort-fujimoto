@@ -15,33 +15,32 @@ void merge(
     int y=mid+1;
     int i;
     double M[right-left+1];
+    // printf("left:%d, mid:%d, right%d\n", left, mid, right);
     for (i=0; i<=right-left; i=i+1) {
+        // printf("x:%d, mid+1:%d\n", x, mid+1);
+
         if(x==mid+1) {M[i] = D[y]; y=y+1;}
         else if(y==right+1) {M[i]=D[x]; x=x+1;}
         else if(D[x]<=D[y]) {M[i]=D[x]; x=x+1;}
         else {M[i]=D[y]; y=y+1;}
 
     }
-    int j = left;
-    // for(int j=0; j<N; j++) { printf("M[%d]: %lf\n", j, M[j]); }
-    // printf("left:%d, mid:%d, right%d\n", left, mid, right);
+    // for(int j=0; j<=right-left; j++) { printf("M[%d]: %lf\n", j, M[j]); }
     // for (int i=left; i<=right; i=i+1) {D[i]=M[i]; }
-    for (i=0; i<=right-left; i=i+1) {D[j]=M[i];j++;}
+    for (i=0; i<=right-left; i=i+1) {D[i+left]=M[i];}
     // printf("%lf, ",D[i]);
 }
-void mergesort_fujimoto(
+void merge_sort(
     double  D[],    // データ D[left], ..., D[right]
     int     left,   // ソートの対象とする配列 D の左端の位置
     int     right   // ソートの対象とする配列 D の右端の位置
 )
 {
     int mid=(left + right)/2;
-    // printf("%d, %d, %d\n",left, mid, right);
-    if(left < mid) mergesort_fujimoto(D, left, mid);
-    if(mid +1 < right) mergesort_fujimoto(D, mid+1, right);
+    if(left < mid) merge_sort(D, left, mid);
+    if(mid +1 < right) merge_sort(D, mid+1, right);
     merge(D, left, mid, right);
 
-    // printf("D[]: %lf, %lf, %lf, %lf, %lf\n",D[0],D[1],D[2],D[3],D[4]);
 }
 
 // **** EOF
