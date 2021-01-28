@@ -16,6 +16,7 @@ int main( void )
     // ++++ 計算時間の合計
     time_all = 0;
 
+    printf("%lf", CLOCKS_PER_SEC);
     // 正確な計算時間を得るための反復
     for( k = 0; k < REP; k++ ) {
 
@@ -38,7 +39,7 @@ int main( void )
 
         // **** ソート
         // アルゴリズム 5.1  選択ソート
-        // selectionsort( N, A );
+        selectionsort( N, A );
         // アルゴリズム 5.2  挿入ソート
         // insertionsort( N, A );
         // アルゴリズム 5.5  ヒープソート
@@ -46,7 +47,7 @@ int main( void )
         // アルゴリズム 6.1  クイックソート
         // quicksort( A, 0, N-1 );
         // アルゴリズム 7.3  マージソート
-        merge_sort( A, 0, N-1 );
+        // mergesort( A, 0, N-1 );
 
         // ++++ 計算時間の計測終了
         time_end = clock();
@@ -69,7 +70,7 @@ int main( void )
     // 計算時間（平均）
     printf( "-------- avg. by REP = %d\n", REP );
     printf( "data: N = %d  ", N );
-    printf( "time: %lf sec.\n", ( ( (double)time_all / (double)REP ) / (double)CLOCKS_PER_SEC ) );
+    printf( "time: %lf sec.\n", ( ((double)time_all / (double)REP ) / (double)CLOCKS_PER_SEC ) );
 }
 
 // **** EOF

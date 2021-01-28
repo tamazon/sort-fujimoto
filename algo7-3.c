@@ -30,15 +30,15 @@ void merge(
     for (i=0; i<=right-left; i=i+1) {D[i+left]=M[i];}
     // printf("%lf, ",D[i]);
 }
-void merge_sort(
+void mergesort(
     double  D[],    // データ D[left], ..., D[right]
     int     left,   // ソートの対象とする配列 D の左端の位置
     int     right   // ソートの対象とする配列 D の右端の位置
 )
 {
     int mid=(left + right)/2;
-    if(left < mid) merge_sort(D, left, mid);
-    if(mid +1 < right) merge_sort(D, mid+1, right);
+    if(left < mid) mergesort(D, left, mid);
+    if(mid +1 < right) mergesort(D, mid+1, right);
     merge(D, left, mid, right);
 
 }

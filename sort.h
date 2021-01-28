@@ -7,7 +7,7 @@
 // ****
 
 // データの個数
-#define N 10
+#define N 100
 // #define N 4
 
 // 正確な計算時間を得るための反復回数
@@ -67,7 +67,7 @@ void quicksort(
 );
 
 // アルゴリズム 7.3  マージソート
-void merge_sort(
+void mergesort(
     double  [],
     int,
     int
